@@ -13,7 +13,7 @@ return new class () extends Migration {
         Schema::create('symptoms', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

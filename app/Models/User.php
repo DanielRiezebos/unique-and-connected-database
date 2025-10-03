@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function symptoms() : BelongsToMany
     {
-        return $this->belongsToMany(Symptom::class)
+        return $this->belongsToMany(Symptom::class, 'symptom_records')
                     ->using(SymptomRecord::class)
                     ->withPivot(['startdate_symptom', 'enddate_symptom']);
     }

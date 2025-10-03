@@ -12,10 +12,15 @@ class Symptom extends Model
     /** @use HasFactory<\Database\Factories\SymptomFactory> */
     use HasFactory;
     use HasUuids;
+    
+    public $fillable = [
+        'title',
+        'description'
+    ];
 
     public function users() : BelongsToMany
     {
-        return $this->belongsToMany(User::class)
+        return $this->belongsToMany(User::class, 'symptom_records')
                     ->using(SymptomRecord::class)
                     ->withPivot(['startdate_symptom', 'enddate_symptom']);
     }
