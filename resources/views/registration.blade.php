@@ -65,21 +65,9 @@
                 <input
                 type="radio"
                 name="gender"
-                id="different"
-                value="different"
-                {{ old('gender') == 'different' ? 'checked' : '' }}
-                required
-                class="form-radio text-indigo-600"
-                >
-                <span class="ml-2">Different</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input
-                type="radio"
-                name="gender"
-                id="unknown"
-                value="unknown"
-                {{ old('gender') == 'unknown' ? 'checked' : '' }}
+                id="rathernotsay"
+                value="rathernotsay"
+                {{ old('gender') == 'rathernotsay' ? 'checked' : '' }}
                 required
                 class="form-radio text-indigo-600"
                 >

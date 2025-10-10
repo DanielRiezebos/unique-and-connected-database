@@ -79,10 +79,8 @@
     <!-- Registration Link -->
     <p class="mt-8 text-center text-sm text-gray-600">
         Don't have an account?
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
-                Sign up now
-            </a>
-        @endif
+        <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+            Sign up now
+        </a>
     </p>
 @endsection

@@ -2,11 +2,21 @@
 
 namespace App\Services;
 
-use App\DTO\UserDTO;
 use App\Models\User;
+use App\DTO\UserDTO;
+use App\DTO\LoginDTO;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthenticationService
 {
+    public function loginUser(Request $request, LoginDTO $credentials)
+    {
+        if (Auth::attempt([$credentials->getEmail(), $credentials->getPassword()])) {
+            return $request->session()->regenerate();
+        }
+    }
+
     public function registerNewUser(UserDTO $newUser) : User|bool
     {
         try {
@@ -17,6 +27,7 @@ class AuthenticationService
                 'gender' => $newUser->getGender()
             ]);
         } catch (\Throwable $ball) {
+            dd($ball);
             // TODO: Implement some Error strategy
             return false; 
         }
